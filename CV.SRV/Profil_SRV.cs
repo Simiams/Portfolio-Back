@@ -18,20 +18,7 @@ public class Profil_SRV
         var dtos = new List<Profil_DTO>();
         foreach (var dal in dals)
         {
-            dtos.Add(new Profil_DTO()
-            {
-                Id = dal.Id,
-                Name = dal.Name,
-                LastName = dal.LastName,
-                Pdp = dal.Pdp,
-                Ddn = dal.Ddn,
-                Mail = dal.Mail,
-                Phone = dal.Phone,
-                City = dal.City,
-                Job = dal.Job,
-                CurrentSchool = dal.CurrentSchool,
-                Description = dal.Description
-            });
+            dtos.Add(CreateDtoByDal(dal));
         }
 
         return dtos;
@@ -40,41 +27,44 @@ public class Profil_SRV
     public Profil_DTO GetByID(Profil_DTO dto)
     {
         var dal = ProfilDepotDal.GetById(dto.Id);
-        dto.Id = dal.Id;
-        dto.Name = dal.Name;
-        dto.LastName = dal.LastName;
-        dto.Pdp = dal.Pdp;
-        dto.Ddn = dal.Ddn;
-        dto.Mail = dal.Mail;
-        dto.Phone = dal.Phone;
-        dto.City = dal.City;
-        dto.Job = dal.Job;
-        dto.CurrentSchool = dal.CurrentSchool;
-        dto.Description = dal.Description;
-        return dto;
+        return CreateDtoByDal(dal);;
     }
 
     public Profil_DTO Insert(Profil_DTO dto)
     {
-        var dal = new Profil_DAL(
-            dto.Id,
-            dto.Name,
-            dto.LastName,
-            dto.Pdp,
-            dto.Ddn,
-            dto.Mail,
-            dto.Phone,
-            dto.City,
-            dto.Job,
-            dto.CurrentSchool,
-            dto.Description
-        );
+        var dal = CreateDalBYDto(dto);
         dal = ProfilDepotDal.Insert(dal);
         return dto;
     }
 
     public Profil_DTO Delete(Profil_DTO dto)
     {
+        var dal = CreateDalBYDto(dto);
+        dal = ProfilDepotDal.Delete(dal);
+        return dto;
+    }
+    
+    public Profil_DTO CreateDtoByDal(Profil_DAL dal)
+    {
+        var dto = new Profil_DTO()
+        {
+            Id = dal.Id,
+            Name = dal.Name,
+            LastName = dal.LastName,
+            Pdp = dal.Pdp,
+            Ddn = dal.Ddn,
+            Mail = dal.Mail,
+            Phone = dal.Phone,
+            City = dal.City,
+            Job = dal.Job,
+            CurrentSchool = dal.CurrentSchool,
+            Description = dal.Description
+        };
+        return dto;
+    }
+
+    public Profil_DAL CreateDalBYDto(Profil_DTO dto)
+    {
         var dal = new Profil_DAL(
             dto.Id,
             dto.Name,
@@ -88,7 +78,9 @@ public class Profil_SRV
             dto.CurrentSchool,
             dto.Description
         );
-        dal = ProfilDepotDal.Delete(dal);
-        return dto;
+        return dal;
     }
+    
+    
+    
 }
