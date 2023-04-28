@@ -80,7 +80,4 @@ public class Profil_SRV
         );
         return dal;
     }
-    
-    
-    
 }
