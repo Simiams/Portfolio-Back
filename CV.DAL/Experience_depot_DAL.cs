@@ -50,6 +50,34 @@ public class Experience_depot_DAL : Depot_DAL<Experience_DAL>
         CloseAndDisposeConnection();
         return dal;
     }
+    
+
+    public List<Experience_DAL> GetAllShortByProfilId(int id)
+    {
+        InitialConnectionAndCommand();
+        Command.CommandText = @"SELECT e.[id], e.[job], e.[endPeriod], e.[startPeriod], e.[url], e.[company]
+                                FROM profil_experience pe
+                                INNER JOIN experience e ON pe.id_experience = e.id
+                                WHERE pe.id_profil = @id";
+        Command.Parameters.AddWithValue("@id", id);
+        var reader = Command.ExecuteReader();
+        var dals = new List<Experience_DAL>();
+        if (!reader.HasRows)
+            return null;
+        while (reader.Read())
+        {
+            dals.Add(new Experience_DAL(
+                (int)reader["id"],
+                (string)reader["job"],
+                (DateTime)reader["endPeriod"],
+                (DateTime)reader["startPeriod"],
+                (string)reader["url"],
+                (string)reader["company"]
+            ));
+        }
+        CloseAndDisposeConnection();
+        return dals;
+    }
 
     public override Experience_DAL Insert(Experience_DAL dal)
     {

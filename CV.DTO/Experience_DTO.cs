@@ -9,4 +9,5 @@ public class Experience_DTO
     public string Description { get; set; }
     public string Url { get; set; }
     public string Company { get; set; }
+    public List<Competence_DTO> Competences { get; set; }
 }

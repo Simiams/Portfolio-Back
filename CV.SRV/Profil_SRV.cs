@@ -6,10 +6,14 @@ namespace CV.SRV;
 public class Profil_SRV
 {
     protected Profil_depot_DAL ProfilDepotDal;
+    protected Competence_SRV CompetenceSrv;
+    protected Experience_SRV ExperienceSrv;
 
     public Profil_SRV()
     {
         ProfilDepotDal = new Profil_depot_DAL();
+        CompetenceSrv = new Competence_SRV();
+        ExperienceSrv = new Experience_SRV();
     }
 
     public List<Profil_DTO> GetAll()
@@ -18,9 +22,11 @@ public class Profil_SRV
         var dtos = new List<Profil_DTO>();
         foreach (var dal in dals)
         {
-            dtos.Add(CreateDtoByDal(dal));
+            var dto = CreateDtoByDal(dal);
+            dto.Competences = CompetenceSrv.GettAllByProfilId(dto.Id);
+            dto.Experiences = ExperienceSrv.GetAllShortByProfilId(dto.Id);
+            dtos.Add(dto);
         }
-
         return dtos;
     }
 
@@ -76,7 +82,8 @@ public class Profil_SRV
             dto.City,
             dto.Job,
             dto.CurrentSchool,
-            dto.Description
+            dto.Description,
+            dto.LookingFor
         );
         return dal;
     }

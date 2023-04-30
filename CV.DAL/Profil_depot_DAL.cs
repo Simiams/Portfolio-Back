@@ -25,7 +25,8 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
                 (string)reader["city"],
                 (string)reader["job"],
                 reader["currentSchool"]!= DBNull.Value ? (int)reader["currentSchool"] : null,
-                (string)reader["description"]
+                (string)reader["description"],
+                reader["lookingFor"]!= DBNull.Value ? (string)reader["currentSchool"] : null
             ));
         }
         CloseAndDisposeConnection();
@@ -52,7 +53,8 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
                 (string)reader["city"],
                 (string)reader["job"],
                 reader["currentSchool"] != DBNull.Value ? (int)reader["currentSchool"] : null,
-                (string)reader["description"]
+                (string)reader["description"],
+                reader["lookingFor"]!= DBNull.Value ? (string)reader["currentSchool"] : null
             );
         }
         CloseAndDisposeConnection();

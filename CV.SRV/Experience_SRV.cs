@@ -6,10 +6,12 @@ namespace CV.SRV;
 public class Experience_SRV
 {
     protected Experience_depot_DAL experienceDepotDal;
+    protected Competence_SRV competenceSrv;
 
     public Experience_SRV()
     {
         experienceDepotDal = new Experience_depot_DAL();
+        competenceSrv = new Competence_SRV();
     }
 
     public List<Experience_DTO> GetAll()
@@ -18,7 +20,9 @@ public class Experience_SRV
         var dtos = new List<Experience_DTO>();
         foreach (var dal in dals)
         {
-            dtos.Add(CreateDtoByDal(dal));
+            var dto = CreateDtoByDal(dal);
+            dto.Competences = competenceSrv.GetAllByExperienceId(dto.Id);
+            dtos.Add(dto);
         }
 
         return dtos;
@@ -30,6 +34,18 @@ public class Experience_SRV
         return CreateDtoByDal(dal);
     }
 
+    public List<Experience_DTO> GetAllShortByProfilId(int id)
+    {
+        var dals = experienceDepotDal.GetAllShortByProfilId(id);
+        var dtos = new List<Experience_DTO>();
+        foreach (var dal in dals)
+        {
+            var dto = CreateDtoByDal(dal);
+            dto.Competences = competenceSrv.GetAllByExperienceId(dto.Id);
+            dtos.Add(dto);
+        }
+        return dtos;
+    }
     public Experience_DTO Insert(Experience_DTO dto)
     {
         var dal = CreateDalByDto(dto);

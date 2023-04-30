@@ -29,6 +29,30 @@ public class Competence_SRV
         var dal = CompetenceDepotDal.GetById(dto.Id);
         return CreateDtoByDal(dal);;
     }
+    
+    public List<Competence_DTO> GettAllByProfilId(int porfilId)
+    {
+        var dals = CompetenceDepotDal.GetAllByProfilId(porfilId);
+        var dtos = new List<Competence_DTO>();
+        foreach (var dal in dals)
+        {
+            dtos.Add(CreateDtoByDal(dal));
+        }
+
+        return dtos;
+    }
+
+    public List<Competence_DTO> GetAllByExperienceId(int experienceId)
+    {
+        var dals = CompetenceDepotDal.GetAllByExperienceId(experienceId);
+        var dtos = new List<Competence_DTO>();
+        foreach (var dal in dals)
+        {
+            dtos.Add(CreateDtoByDal(dal));
+        }
+
+        return dtos;
+    }
 
     public Competence_DTO Insert(Competence_DTO dto)
     {
