@@ -1,0 +1,12 @@
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.csproj.AssemblyReference.cache
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.GeneratedMSBuildEditorConfig.editorconfig
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.AssemblyInfoInputs.cache
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.AssemblyInfo.cs
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.csproj.CoreCompileInputs.cache
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/refint/CV.BLL.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/CV.BLL.pdb
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL/obj/Debug/net6.0/ref/CV.BLL.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL.deps.json
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.BLL.pdb

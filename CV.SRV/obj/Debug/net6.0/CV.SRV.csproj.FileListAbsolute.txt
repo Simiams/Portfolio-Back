@@ -1,10 +1,3 @@
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.deps.json
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.dll
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.pdb
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DAL.dll
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DTO.dll
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DAL.pdb
-/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DTO.pdb
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/CV.SRV.csproj.AssemblyReference.cache
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/CV.SRV.GeneratedMSBuildEditorConfig.editorconfig
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/CV.SRV.AssemblyInfoInputs.cache
@@ -15,3 +8,16 @@
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/refint/CV.SRV.dll
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/CV.SRV.pdb
 /media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/obj/Debug/net6.0/ref/CV.SRV.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV.deps.json
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV.pdb
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.API/CV.SRV.deps.json
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.API/CV.SRV.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.API/CV.SRV.pdb
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.deps.json
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.SRV.pdb
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DAL.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DTO.dll
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DAL.pdb
+/media/simsim/cd8a8f02-df25-4ce3-9527-0155114d32f1/Simon/Perso/Dev/CV/V3/CV-Bak/CV.SRV/bin/Debug/net6.0/CV.DTO.pdb
