@@ -17,6 +17,7 @@ builder.Services.AddSingleton(typeof(Profil_SRV));
 builder.Services.AddSingleton(typeof(Competence_SRV));
 builder.Services.AddSingleton(typeof(School_SRV));
 builder.Services.AddSingleton(typeof(Experience_SRV));
+builder.Services.AddSingleton(typeof(Project_SRV));
 builder.Services.AddControllers();
 
 var app = builder.Build();
