@@ -7,11 +7,11 @@ public class Project_SRV
 {
     protected Project_depot_DAL projectDepotDal;
     protected Competence_SRV CompetenceSrv;
+    protected Profil_SRV profilSrv;
     
     public Project_SRV()
     {
         projectDepotDal = new Project_depot_DAL();
-        CompetenceSrv = new Competence_SRV();
     }
     
     public List<Project_DTO> GetAll()
@@ -32,6 +32,14 @@ public class Project_SRV
         return CreateDtoByDal(dal);
     }
 
+    public Project_DTO GetProjectByUriProjectAndUriProfil(string uriProfil, string uriProject)
+    {
+        profilSrv = new Profil_SRV();
+        int idProfil = profilSrv.GetByUri(uriProfil).Id;
+        var dal = projectDepotDal.GetProjectByUriProjectAndIdProfil(uriProject, idProfil);
+        return CreateDtoByDal(dal);
+    }
+
     public List<Project_DTO> GetAllShortByIdProfil(int idProfil)
     {
         var dals = projectDepotDal.GetAllShortByIdProfil(idProfil);
@@ -47,6 +55,7 @@ public class Project_SRV
 
     public Project_DTO CreateDtoByDal(Project_DAL dal)
     {
+        CompetenceSrv = new Competence_SRV();
         var dto = new Project_DTO()
         {
             Id = dal.Id,

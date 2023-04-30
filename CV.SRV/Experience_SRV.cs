@@ -7,15 +7,16 @@ public class Experience_SRV
 {
     protected Experience_depot_DAL experienceDepotDal;
     protected Competence_SRV competenceSrv;
+    protected Profil_SRV profilSrv;
 
     public Experience_SRV()
     {
         experienceDepotDal = new Experience_depot_DAL();
-        competenceSrv = new Competence_SRV();
     }
 
     public List<Experience_DTO> GetAll()
     {
+        competenceSrv = new Competence_SRV();
         var dals = experienceDepotDal.GetAll();
         var dtos = new List<Experience_DTO>();
         foreach (var dal in dals)
@@ -34,9 +35,16 @@ public class Experience_SRV
         return CreateDtoByDal(dal);
     }
 
+    public Experience_DTO GetExperienceByUriAndUriPorfil(string uriProfil, string uriExperience)
+    {
+        profilSrv = new Profil_SRV();
+        int idProfil = profilSrv.GetByUri(uriProfil).Id;
+        var dal = experienceDepotDal.GetExperienceByUriAndIdPorfil(idProfil, uriExperience);
+        return CreateDtoByDal(dal);
+    }
     public List<Experience_DTO> GetAllShortByProfilId(int id)
     {
-        Console.WriteLine(4);
+        competenceSrv = new Competence_SRV();
         var dals = experienceDepotDal.GetAllShortByProfilId(id);
         var dtos = new List<Experience_DTO>();
         foreach (var dal in dals)

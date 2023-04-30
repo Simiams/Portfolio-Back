@@ -25,4 +25,10 @@ public class Experience_API
     {
         return Service.GetAll();
     }
+    
+    [HttpPost]
+    public Experience_DTO GetExperienceByUriExperienceAndUriPorfil(string uriProfil, string uriExperience)
+    {
+        return Service.GetExperienceByUriAndUriPorfil(uriProfil, uriExperience);
+    }
 }

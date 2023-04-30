@@ -50,7 +50,34 @@ public class Experience_depot_DAL : Depot_DAL<Experience_DAL>
         CloseAndDisposeConnection();
         return dal;
     }
-    
+
+    public Experience_DAL GetExperienceByUriAndIdPorfil(int idProfil, string uriExperiende)
+    {
+        InitialConnectionAndCommand();
+        Command.CommandText = @"SELECT e.[id], e.[job], e.[endPeriod], e.[startPeriod], e.[url], e.[company], e.uri, e.id_profil
+                                FROM experience e WHERE e.id_profil = @idProfil AND e.uri = @uri";
+        Command.Parameters.AddWithValue("@id", idProfil);
+        Command.Parameters.AddWithValue("@uri", uriExperiende);
+        var reader = Command.ExecuteReader();
+        Experience_DAL dal = null;
+        if (reader.Read())
+        {
+            dal = new Experience_DAL(
+                (int)reader["id"],
+                (string)reader["job"],
+                (DateTime)reader["endPeriod"],
+                (DateTime)reader["startPeriod"],
+                (string)reader["description"],
+                (string)reader["url"],
+                (string)reader["company"]
+            );
+        }
+
+        CloseAndDisposeConnection();
+        return dal;
+        
+        
+    }
 
     public List<Experience_DAL> GetAllShortByProfilId(int id)
     {

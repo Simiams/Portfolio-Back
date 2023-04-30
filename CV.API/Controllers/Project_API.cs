@@ -27,4 +27,11 @@ public class Project_API
     {
         return Service.GetByUri(uri);
     }
+    
+    // [HttpPost]
+    // [Route("caca")]
+    // public Project_DTO GetProjectByUriProjectAndUriPorfil(Project_DTO dto)
+    // {
+    //     return Service.GetProjectByUriProjectAndUriProfil(dto);
+    // }
 }
