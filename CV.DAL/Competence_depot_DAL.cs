@@ -105,6 +105,33 @@ public class Competence_depot_DAL : Depot_DAL<Competence_DAL>
         CloseAndDisposeConnection();
         return dals;
     }
+    
+    public List<Competence_DAL> GetAllByProjectId(int id)
+    {
+        InitialConnectionAndCommand();
+        Command.CommandText = @"SELECT c.[id], c.[name], c.[icon], c.[description], c.[startPractice], c.[url]
+                                FROM competence_project cp
+                                INNER JOIN competence c ON cp.id_competence = c.id
+                                WHERE cp.id_project = @id";
+        Command.Parameters.AddWithValue("@id", id);
+        var reader = Command.ExecuteReader();
+        List<Competence_DAL> dals = new List<Competence_DAL>();
+        if (reader.Read())
+        {
+            dals.Add(new Competence_DAL(
+                (int)reader["id"],
+                (string)reader["name"],
+                (string)reader["description"],
+                (string)reader["icon"],
+                (DateTime)reader["startPractice"],
+                (string)reader["url"])
+            );
+            Console.WriteLine(dals[0].Name);
+        }
+
+        CloseAndDisposeConnection();
+        return dals;
+    }
 
     public override Competence_DAL Insert(Competence_DAL dal)
     {

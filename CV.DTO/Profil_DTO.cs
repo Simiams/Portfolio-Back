@@ -14,6 +14,7 @@ public class Profil_DTO
     public int? CurrentSchool { get; set; }
     public string Description { get; set; }
     public string? LookingFor { get; set; }
+    public string Uri { get; set; }
     public List<Competence_DTO>? Competences { get; set; }
     public List<Experience_DTO>? Experiences { get; set; }
     public List<Project_DTO>? Projects { get; set; }

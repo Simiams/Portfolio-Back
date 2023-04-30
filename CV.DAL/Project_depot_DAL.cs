@@ -83,6 +83,33 @@ public class Project_depot_DAL : Depot_DAL<Project_DAL>
         return dal;
     }
 
+    public Project_DAL GetByUri(string Uri)
+    {
+        InitialConnectionAndCommand();
+        Command.CommandText = "SELECT * FROM Project WHERE uri = @uri";
+        Command.Parameters.AddWithValue("@uri", Uri);
+        var reader = Command.ExecuteReader();
+        if (!reader.HasRows)
+            return null;
+        Project_DAL dal = null;
+        if (reader.Read())
+        {
+            dal = new Project_DAL(
+                (int)reader["id"],
+                (string)reader["name"],
+                (string)reader["uri"],
+                (string)reader["icon"],
+                (DateTime)reader["date"],
+                (string)reader["description"],
+                (string)reader["pageHTML"],
+                (string)reader["pageMarkDown"],
+                (int)reader["id_profil"]
+            );
+        }
+        CloseAndDisposeConnection();
+        return dal;
+        
+    }
     public override Project_DAL Insert(Project_DAL dal)
     {
         throw new NotImplementedException();

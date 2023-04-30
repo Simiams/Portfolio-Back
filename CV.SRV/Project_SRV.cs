@@ -6,10 +6,12 @@ namespace CV.SRV;
 public class Project_SRV
 {
     protected Project_depot_DAL projectDepotDal;
+    protected Competence_SRV CompetenceSrv;
     
     public Project_SRV()
     {
         projectDepotDal = new Project_depot_DAL();
+        CompetenceSrv = new Competence_SRV();
     }
     
     public List<Project_DTO> GetAll()
@@ -22,6 +24,12 @@ public class Project_SRV
         }
         
         return dtos;
+    }
+
+    public Project_DTO GetByUri(string Uri)
+    {
+        var dal = projectDepotDal.GetByUri(Uri);
+        return CreateDtoByDal(dal);
     }
 
     public List<Project_DTO> GetAllShortByIdProfil(int idProfil)
@@ -49,6 +57,7 @@ public class Project_SRV
             PageHTML = dal.PageHTML,
             PageMarkDown = dal.PageMarkDown,
             IdProfil = dal.IdProfil,
+            Competences = CompetenceSrv.GetAllByProjectId(dal.Id)
         };
         return dto;
     }

@@ -13,14 +13,21 @@ public class Profil_API
     {
         Service = service;
     }
+    // [HttpGet]
+    // [Route("/{id:int}")]
+    // public Profil_DTO GetById(int id)
+    // {
+    //     var dto = new Profil_DTO();
+    //     dto.Id = id;
+    //     return Service.GetByID(dto);
+    // }
     [HttpGet]
-    [Route("/{id:int}")]
-    public Profil_DTO GetById(int id)
+    [Route("{uri}")]
+    public Profil_DTO GetByUri(string uri)
     {
-        var dto = new Profil_DTO();
-        dto.Id = id;
-        return Service.GetByID(dto);
+        return Service.GetByUri(uri);
     }
+    
     [HttpGet]
     public List<Profil_DTO> GetAll()
     {

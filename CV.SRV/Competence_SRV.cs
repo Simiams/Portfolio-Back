@@ -54,6 +54,18 @@ public class Competence_SRV
         return dtos;
     }
 
+    public List<Competence_DTO> GetAllByProjectId(int projectId)
+    {
+        var dals = CompetenceDepotDal.GetAllByProjectId(projectId);
+        var dtos = new List<Competence_DTO>();
+        foreach (var dal in dals)
+        {
+            dtos.Add(CreateDtoByDal(dal));
+        }
+
+        return dtos;
+    }
+
     public Competence_DTO Insert(Competence_DTO dto)
     {
         var dal = CreateDalBYDto(dto);

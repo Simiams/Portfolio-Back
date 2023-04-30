@@ -25,9 +25,7 @@ public class Profil_SRV
         foreach (var dal in dals)
         {
             var dto = CreateDtoByDal(dal);
-            dto.Competences = CompetenceSrv.GettAllByProfilId(dto.Id);
-            dto.Experiences = ExperienceSrv.GetAllShortByProfilId(dto.Id);
-            dto.Projects = projectSrv.GetAllShortByIdProfil(dto.Id);
+
             dtos.Add(dto);
         }
         return dtos;
@@ -37,6 +35,12 @@ public class Profil_SRV
     {
         var dal = ProfilDepotDal.GetById(dto.Id);
         return CreateDtoByDal(dal);;
+    }
+
+    public Profil_DTO GetByUri(string uri)
+    {
+        var dal = ProfilDepotDal.GetByUri(uri);
+        return CreateDtoByDal(dal);
     }
 
     public Profil_DTO Insert(Profil_DTO dto)
@@ -67,7 +71,11 @@ public class Profil_SRV
             City = dal.City,
             Job = dal.Job,
             CurrentSchool = dal.CurrentSchool,
-            Description = dal.Description
+            Description = dal.Description,
+            Uri = dal.Uri,
+            Competences = CompetenceSrv.GettAllByProfilId(dal.Id),
+            Experiences = ExperienceSrv.GetAllShortByProfilId(dal.Id),
+            Projects = projectSrv.GetAllShortByIdProfil(dal.Id)
         };
         return dto;
     }
@@ -86,7 +94,8 @@ public class Profil_SRV
             dto.Job,
             dto.CurrentSchool,
             dto.Description,
-            dto.LookingFor
+            dto.LookingFor,
+            dto.Uri
         );
         return dal;
     }

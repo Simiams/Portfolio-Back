@@ -19,4 +19,12 @@ public class Project_API
     {
         return Service.GetAll();
     }
+    
+    [HttpGet]
+    [Route("{uri}")]
+    
+    public Project_DTO GetByUri(string uri)
+    {
+        return Service.GetByUri(uri);
+    }
 }

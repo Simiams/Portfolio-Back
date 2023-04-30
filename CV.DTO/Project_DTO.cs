@@ -11,4 +11,5 @@ public class Project_DTO
     public string PageHTML { get; set; }
     public string PageMarkDown { get; set; }
     public int IdProfil { get; set; }
+    public List<Competence_DTO> Competences { get; set; }
 }

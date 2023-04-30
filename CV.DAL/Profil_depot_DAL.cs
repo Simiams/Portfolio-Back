@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace CV.DAL;
 
@@ -24,11 +25,13 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
                 (string)reader["phone"],
                 (string)reader["city"],
                 (string)reader["job"],
-                reader["currentSchool"]!= DBNull.Value ? (int)reader["currentSchool"] : null,
+                reader["currentSchool"] != DBNull.Value ? (int)reader["currentSchool"] : null,
                 (string)reader["description"],
-                reader["lookingFor"]!= DBNull.Value ? (string)reader["currentSchool"] : null
+                reader["lookingFor"] != DBNull.Value ? (string)reader["currentSchool"] : null,
+                (string)reader["uri"]
             ));
         }
+
         CloseAndDisposeConnection();
         return dals;
     }
@@ -54,9 +57,43 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
                 (string)reader["job"],
                 reader["currentSchool"] != DBNull.Value ? (int)reader["currentSchool"] : null,
                 (string)reader["description"],
-                reader["lookingFor"]!= DBNull.Value ? (string)reader["currentSchool"] : null
+                reader["lookingFor"] != DBNull.Value ? (string)reader["currentSchool"] : null,
+                (string)reader["uri"]
             );
         }
+
+        CloseAndDisposeConnection();
+        return dal;
+    }
+
+    public Profil_DAL GetByUri(string uri)
+    {
+        InitialConnectionAndCommand();
+        Command.CommandText = "SELECT * FROM Profil WHERE uri = @uri";
+        Command.Parameters.AddWithValue("@uri", uri);
+        var reader = Command.ExecuteReader();
+        Profil_DAL dal = null;
+        if (reader.Read())
+        {
+            Console.WriteLine("caca");
+
+            dal = new Profil_DAL(
+                (int)reader["id"],
+                (string)reader["name"],
+                (string)reader["lastName"],
+                (string)reader["pdp"],
+                (DateTime)reader["ddn"],
+                (string)reader["mail"],
+                (string)reader["phone"],
+                (string)reader["city"],
+                (string)reader["job"],
+                reader["currentSchool"] != DBNull.Value ? (int)reader["currentSchool"] : null,
+                (string)reader["description"],
+                reader["lookingFor"] != DBNull.Value ? (string)reader["lookingFor"] : null,
+                (string)reader["uri"]
+            );
+        }
+
         CloseAndDisposeConnection();
         return dal;
     }
@@ -64,7 +101,8 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
     public override Profil_DAL Insert(Profil_DAL dal)
     {
         InitialConnectionAndCommand();
-        Command.CommandText = @"INSERT INTO Profil (name, lastName, pdp, ddn, mail, phone, city, job, currentSchool, description)
+        Command.CommandText =
+            @"INSERT INTO Profil (name, lastName, pdp, ddn, mail, phone, city, job, currentSchool, description)
                                 VALUES (@name, @lastName, @pdp, @ddn, @mail, @phone, @city, @job, @currentSchool, @description)";
         Command.Parameters.AddWithValue("@name", dal.Name);
         Command.Parameters.AddWithValue("@lastName", dal.LastName);
@@ -78,7 +116,7 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
         Command.Parameters.AddWithValue("@description", dal.Description);
         dal.Id = Convert.ToInt32(Command.ExecuteScalar());
         CloseAndDisposeConnection();
-        return dal; 
+        return dal;
     }
 
     public override void Update(Profil_DAL dal)
