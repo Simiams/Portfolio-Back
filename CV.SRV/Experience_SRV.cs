@@ -36,6 +36,7 @@ public class Experience_SRV
 
     public List<Experience_DTO> GetAllShortByProfilId(int id)
     {
+        Console.WriteLine(4);
         var dals = experienceDepotDal.GetAllShortByProfilId(id);
         var dtos = new List<Experience_DTO>();
         foreach (var dal in dals)

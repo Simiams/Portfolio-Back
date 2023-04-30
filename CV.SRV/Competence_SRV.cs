@@ -32,6 +32,8 @@ public class Competence_SRV
     
     public List<Competence_DTO> GettAllByProfilId(int porfilId)
     {
+        
+        Console.WriteLine(3);
         var dals = CompetenceDepotDal.GetAllByProfilId(porfilId);
         var dtos = new List<Competence_DTO>();
         foreach (var dal in dals)

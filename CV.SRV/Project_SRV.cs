@@ -40,7 +40,8 @@ public class Project_SRV
         {
             dtos.Add(CreateDtoByDal(dal));
         }
-        
+        Console.WriteLine(6);
+
         return dtos;
     }
 

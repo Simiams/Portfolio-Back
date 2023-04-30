@@ -24,9 +24,10 @@ public class Profil_SRV
         var dtos = new List<Profil_DTO>();
         foreach (var dal in dals)
         {
+            Console.WriteLine(1);
             var dto = CreateDtoByDal(dal);
-
             dtos.Add(dto);
+            Console.WriteLine(2);
         }
         return dtos;
     }

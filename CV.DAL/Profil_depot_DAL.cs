@@ -6,7 +6,9 @@ namespace CV.DAL;
 public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
 {
     public override List<Profil_DAL> GetAll()
-    {
+    {           
+
+
         InitialConnectionAndCommand();
         Command.CommandText = "SELECT * FROM Profil";
         var reader = Command.ExecuteReader();
@@ -27,9 +29,11 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
                 (string)reader["job"],
                 reader["currentSchool"] != DBNull.Value ? (int)reader["currentSchool"] : null,
                 (string)reader["description"],
-                reader["lookingFor"] != DBNull.Value ? (string)reader["currentSchool"] : null,
+                reader["lookingFor"] != DBNull.Value ? (string)reader["lookingFor"] : null,
                 (string)reader["uri"]
             ));
+            Console.WriteLine("caca");
+
         }
 
         CloseAndDisposeConnection();
@@ -75,8 +79,6 @@ public class Profil_depot_DAL : Depot_DAL<Profil_DAL>
         Profil_DAL dal = null;
         if (reader.Read())
         {
-            Console.WriteLine("caca");
-
             dal = new Profil_DAL(
                 (int)reader["id"],
                 (string)reader["name"],

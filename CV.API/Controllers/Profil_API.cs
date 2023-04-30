@@ -21,6 +21,7 @@ public class Profil_API
     //     dto.Id = id;
     //     return Service.GetByID(dto);
     // }
+    
     [HttpGet]
     [Route("{uri}")]
     public Profil_DTO GetByUri(string uri)
