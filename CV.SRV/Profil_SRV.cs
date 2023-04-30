@@ -8,12 +8,14 @@ public class Profil_SRV
     protected Profil_depot_DAL ProfilDepotDal;
     protected Competence_SRV CompetenceSrv;
     protected Experience_SRV ExperienceSrv;
+    protected Project_SRV projectSrv;
 
     public Profil_SRV()
     {
         ProfilDepotDal = new Profil_depot_DAL();
         CompetenceSrv = new Competence_SRV();
         ExperienceSrv = new Experience_SRV();
+        projectSrv = new Project_SRV();
     }
 
     public List<Profil_DTO> GetAll()
@@ -25,6 +27,7 @@ public class Profil_SRV
             var dto = CreateDtoByDal(dal);
             dto.Competences = CompetenceSrv.GettAllByProfilId(dto.Id);
             dto.Experiences = ExperienceSrv.GetAllShortByProfilId(dto.Id);
+            dto.Projects = projectSrv.GetAllShortByIdProfil(dto.Id);
             dtos.Add(dto);
         }
         return dtos;

@@ -16,5 +16,6 @@ public class Profil_DTO
     public string? LookingFor { get; set; }
     public List<Competence_DTO>? Competences { get; set; }
     public List<Experience_DTO>? Experiences { get; set; }
+    public List<Project_DTO>? Projects { get; set; }
 
 }

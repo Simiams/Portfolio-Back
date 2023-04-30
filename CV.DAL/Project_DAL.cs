@@ -16,6 +16,6 @@ public class Project_DAL
     public Project_DAL(int id, string name, string uri, string icon, DateTime date, int idProfil)
         => (Id, Name, Uri, Icon, Date, IdProfil) = (id, name, uri, icon, date, idProfil);
     public Project_DAL(int id, string name, string uri, string icon, DateTime date, string description, string pageHtml, string pageMarkDown, int idProfil)
-    :this(id, name, uri, icon, date, idProfil)
+        :this(id, name, uri, icon, date, idProfil)
         =>(Description, PageHTML, PageMarkDown) = (description, pageHtml, pageMarkDown);
 }

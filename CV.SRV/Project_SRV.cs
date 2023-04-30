@@ -23,7 +23,19 @@ public class Project_SRV
         
         return dtos;
     }
-    
+
+    public List<Project_DTO> GetAllShortByIdProfil(int idProfil)
+    {
+        var dals = projectDepotDal.GetAllShortByIdProfil(idProfil);
+        var dtos = new List<Project_DTO>();
+        foreach (var dal in dals)
+        {
+            dtos.Add(CreateDtoByDal(dal));
+        }
+        
+        return dtos;
+    }
+
     public Project_DTO CreateDtoByDal(Project_DAL dal)
     {
         var dto = new Project_DTO()
