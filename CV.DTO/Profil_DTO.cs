@@ -13,4 +13,5 @@ public class Profil_DTO
     public string Job { get; set; }
     public int? CurrentSchool { get; set; }
     public string Description { get; set; }
+    
 }
